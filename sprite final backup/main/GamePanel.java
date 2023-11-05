@@ -77,13 +77,13 @@ public class GamePanel extends JPanel implements Runnable {
     public void update() {
         player.update();
         
-        int playerWidth = 40; // Width of the player's sprite
-        int playerHeight = 50; // Height of the player's sprite
+        int playerWidth = 20; // Width of the player's sprite
+        int playerHeight = 25; // Height of the player's sprite
     
         for (int col = 0; col < maxScreenColumn; col++) {
             for (int row = 0; row < maxScreenRow; row++) {
                 int tileNum = tileM.mapTileNum[col][row];
-                if (tileNum == 3 || tileNum == 4) { // Check for specific tile numbers
+                if (tileNum == 3 || tileNum == 4 || tileNum == 5) { // Check for specific tile numbers
                     int tileX = col * arenaSize;
                     int tileY = row * arenaSize;
     
