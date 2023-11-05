@@ -47,7 +47,7 @@ public class TileManager {
             tile[3].image = ImageIO.read(
                     getClass().getResourceAsStream("/res/space_background_pack/layers/parallax-space-backgound.png"));
             tile[3].collision = true;
-                
+
             tile[4] = new Tile();
             tile[4].image = ImageIO.read(
                     getClass().getResourceAsStream("/res/space_background_pack/layers/parallax-space-stars.png"));
@@ -57,7 +57,11 @@ public class TileManager {
             tile[5].image = ImageIO.read(
                     getClass().getResourceAsStream("/res/space_background_pack/layers/parallax-space-big-planet.png"));
             tile[5].collision = true;
-        
+
+            tile[6] = new Tile();
+            tile[6].image = ImageIO.read(
+                    getClass().getResourceAsStream("/res/space_background_pack/layers/ugly.png"));
+            tile[6].collision = true;
 
         } catch (IOException e) {
             e.printStackTrace();

@@ -76,21 +76,21 @@ public class GamePanel extends JPanel implements Runnable {
     // Update the position of the sprite
     public void update() {
         player.update();
-        
-        int playerWidth = 20; // Width of the player's sprite
-        int playerHeight = 25; // Height of the player's sprite
-    
+
+        int playerWidth = 32; // Width of the player's sprite
+        int playerHeight = 32; // Height of the player's sprite
+
         for (int col = 0; col < maxScreenColumn; col++) {
             for (int row = 0; row < maxScreenRow; row++) {
                 int tileNum = tileM.mapTileNum[col][row];
-                if (tileNum == 3 || tileNum == 4 || tileNum == 5) { // Check for specific tile numbers
+                if (tileNum == 3 || tileNum == 4 || tileNum == 5 || tileNum == 6) { // Check for specific tile numbers
                     int tileX = col * arenaSize;
                     int tileY = row * arenaSize;
-    
+
                     // Check for collision with the current tile
                     if (player.x + playerWidth > tileX && player.x < tileX + arenaSize &&
-                        player.y + playerHeight > tileY && player.y < tileY + arenaSize) {
-                        
+                            player.y + playerHeight > tileY && player.y < tileY + arenaSize) {
+
                         // Handle collision logic here
                         // Adjust the player's position to prevent moving into the tile
                         if (player.vx > 0) {
@@ -100,7 +100,7 @@ public class GamePanel extends JPanel implements Runnable {
                             // Moving left, prevent moving further left
                             player.x = tileX + arenaSize;
                         }
-                        
+
                         if (player.vy > 0) {
                             // Moving down, prevent moving further down
                             player.y = tileY - playerHeight;
@@ -113,9 +113,6 @@ public class GamePanel extends JPanel implements Runnable {
             }
         }
     }
-    
-    
-    
 
     @Override
     public void paintComponent(Graphics g) {
