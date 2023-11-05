@@ -20,7 +20,7 @@ public class launcher {
         JFrame frame = new JFrame("Space Beyond Us!");
         JPanel panel = new JPanel(new GridBagLayout()) {
             private static final long serialVersionUID = 1L;
-            public Image backgroundImage = new ImageIcon("/Users/huzaifafareed/Documents/GitHub/spaceus/sprite final backup/res/Space2-export.png").getImage();
+            public Image backgroundImage = new ImageIcon(getClass().getClassLoader().getResource("res/Space2-export.png")).getImage();
             @Override
             protected void paintComponent(Graphics g) {
                 super.paintComponent(g);
