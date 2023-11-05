@@ -72,9 +72,9 @@ public class TileManager {
             if (tile[7].collision == true) {
                 JFrame frame = new JFrame();
                 frame.setSize(500, 500);
-                JOptionPane.showMessageDialog(frame, "You have minimized the distance between us!");
+                frame.setVisible(true);
                 frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                System.exit(0);
+                frame.dispose();
             }    
             tile[7].collision = false;  
 

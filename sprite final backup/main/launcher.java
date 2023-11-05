@@ -18,7 +18,7 @@ import java.awt.event.ActionListener;
 
 public class launcher {
     public static void main(String[] args) {
-        JFrame frame = new JFrame("Space Beyond Us!");
+        JFrame frame = new JFrame("Heroes Journey!");
         JPanel panel = new JPanel(new GridBagLayout()) {
             private static final long serialVersionUID = 1L;
             public Image backgroundImage = new ImageIcon(
@@ -35,7 +35,7 @@ public class launcher {
         // Use a pixel art font (replace "PixelFont.ttf" with the actual font file)
         Font pixelFont = loadPixelArtFont("/res/space_background_pack/layers/04B_30__.TTF");
 
-        JLabel titleLabel = new JLabel("Welcome to Space Beyond Us!");
+        JLabel titleLabel = new JLabel("Welcome to Heroes Journey!");
         GridBagConstraints c = new GridBagConstraints();
         c.gridx = 0;
         c.gridy = 0;
