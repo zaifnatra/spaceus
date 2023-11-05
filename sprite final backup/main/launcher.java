@@ -20,7 +20,9 @@ public class launcher {
         JFrame frame = new JFrame("Space Beyond Us!");
         JPanel panel = new JPanel(new GridBagLayout()) {
             private static final long serialVersionUID = 1L;
-            public Image backgroundImage = new ImageIcon(getClass().getClassLoader().getResource("res/Space2-export.png")).getImage();
+            public Image backgroundImage = new ImageIcon(
+                    getClass().getResource("/res/space_background_pack/layers/Space2-export.png")).getImage();
+
             @Override
             protected void paintComponent(Graphics g) {
                 super.paintComponent(g);
@@ -35,12 +37,10 @@ public class launcher {
         c.insets = new Insets(0, 0, 0, 0);
         panel.add(titleLabel, c);
         titleLabel.setFont(new Font("Arial", Font.BOLD, 20));
-        
 
-    
         JLabel beginLabel = new JLabel("Begin?");
         c.gridx = 0;
-        c.gridy = 1; 
+        c.gridy = 1;
         c.insets = new Insets(0, 0, 0, 0);
         panel.add(beginLabel, c);
         beginLabel.setFont(titleLabel.getFont()); // reuse titleLabel's font
@@ -55,7 +55,7 @@ public class launcher {
         c.gridy = 1;
         c.insets = new Insets(50, 0, 0, 400);
         panel.add(startButton, c);
-        
+
         JButton quitButton = new JButton("I am a coward");
         quitButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -65,11 +65,10 @@ public class launcher {
         c.gridx = 1;
         c.insets = new Insets(50, -200, 0, 0);
         panel.add(quitButton, c);
-        
+
         frame.add(panel);
         frame.pack();
         frame.setVisible(true);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 }
-
