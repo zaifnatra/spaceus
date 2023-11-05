@@ -60,8 +60,13 @@ public class TileManager {
 
             tile[6] = new Tile();
             tile[6].image = ImageIO.read(
-                    getClass().getResourceAsStream("/res/space_background_pack/layers/ugly.png"));
+                    getClass().getResourceAsStream("/res/space_background_pack/layers/parallax-space-far-planets.png"));
             tile[6].collision = true;
+
+            tile[7] = new Tile();
+            tile[7].image = ImageIO.read(
+                    getClass().getResourceAsStream("/res/space_background_pack/layers/kingsprite.png"));
+            tile[7].collision = true;
 
         } catch (IOException e) {
             e.printStackTrace();

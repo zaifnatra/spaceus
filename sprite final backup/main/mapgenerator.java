@@ -107,7 +107,7 @@ public class mapgenerator {
             randomForkL = 1 + rand.nextInt(15);
 
             for (int j = 0; j <= randomForkL; j++) { // generate random walls
-                if (randomFork1 < rows && randomFork1 >= 0 && randomFork2 < columns && randomFork2 >= 0) {
+                if (randomFork1 < rows && randomFork1 >= 0 && randomFork2 < columns-1 && randomFork2 >= 0) {
                     if (maze[randomFork1][randomFork2] == 0)
                         maze[randomFork1][randomFork2] = 2;
                 }
@@ -124,7 +124,7 @@ public class mapgenerator {
             randomForkL = 1 + rand.nextInt(15);
 
             for (int k = 0; k <= randomForkL; k++) { // generates random paths
-                if (randomFork1 < rows && randomFork1 >= 0 && randomFork2 < columns && randomFork2 >= 0) {
+                if (randomFork1 < rows && randomFork1 >= 0 && randomFork2 < columns-1 && randomFork2 >= 0) {
                     if (maze[randomFork1][randomFork2] == 0)
                         maze[randomFork1][randomFork2] = 1;
                 }
@@ -138,8 +138,8 @@ public class mapgenerator {
 
         }
         for (int z1 = 0; z1 < rows; z1++) {
-            if (maze[z1][columns - 1] == 0)
-                maze[z1][columns - 1] = 2;
+            if (maze[z1][columns - 1] == 0) maze[z1][columns - 1] = 2;
+            else if(maze[z1][columns-1]==1) maze[z1][columns-1] = 4;
         }
 
         for (int z = 0; z < rows; z++) {
@@ -149,7 +149,7 @@ public class mapgenerator {
                 } else if (maze[z][y] == 2) {
                     System.out.print((rand.nextInt(3) + 4) + " "); // '#' for walls
                 } else {
-                    System.out.print(rand.nextInt(3) + " "); // 'O' for undefined
+                    System.out.print("7 "); // 'O' for undefined
                 }
             }
             System.out.println(" "); // skip line
@@ -163,7 +163,7 @@ public class mapgenerator {
                     } else if (maze[z][y] == 2) {
                         writer.write((rand.nextInt(3) + 4) + " ");
                     } else {
-                        writer.write(rand.nextInt(3) + " ");
+                        writer.write("7 ");
                     }
                 }
                 writer.newLine();
