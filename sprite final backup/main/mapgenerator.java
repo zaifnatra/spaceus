@@ -2,6 +2,7 @@ package main;
 
 import java.util.Random;
 import java.util.Stack;
+
 public class mapgenerator {
     public static void main(String[] args) {
 
@@ -24,7 +25,7 @@ public class mapgenerator {
 
         for(int a = 0; a < rows; a++){
             maze[a][0] = 2;
-            //maze[a][columns-1] = 2;
+
         }
 
         for(int a = 0; a < columns; a++){
@@ -56,16 +57,15 @@ public class mapgenerator {
             position[0] = locationY; //old position y
             position[1] = locationX; //old position x
 
-            randomMove = rand.nextInt(4);
+            randomMove = rand.nextInt(3);
             if(randomMove == previousMove){//skip
-                //System.out.println("tried to go backwards");
             }
-            else if(randomMove == 0) { //moves backwards
-                locationX--; 
-                nextTo1 = maze[locationY-1][locationX]; //above
-                nextTo2 = maze[locationY+1][locationX]; //below
+            //else if(randomMove == 0) { //moves backwards
+            //    locationX--; 
+            //   nextTo1 = maze[locationY-1][locationX]; //above
+             //   nextTo2 = maze[locationY+1][locationX]; //below
         
-            } else if (randomMove == 1) {//moves up
+            else if (randomMove == 1) {//moves up
                 locationY--; 
                 nextTo1 = maze[locationY][locationX-1]; //left
                 nextTo2 = maze[locationY][locationX+1]; //right
@@ -93,9 +93,6 @@ public class mapgenerator {
                     locationX = position[1]; //goback
                     locationY = position[0]; //go back
                     count++;
-                    //System.out.println("DEAD END");
-                    //mark new stop as a deadend=3
-                    //pop the last position ( before previous move)
                 } 
                 else {
                     maze[locationY][locationX] = 1;
@@ -105,13 +102,9 @@ public class mapgenerator {
             }
 
             previousMove = randomMove;
-            //System.out.println("X:" + locationX + " Y: " + locationY);
 
         }
-
-        //System.out.println("count: " + count);
-
-        
+  
         for(int c = 0; c < 1000; c++){ //loop to alternate generating a wall and a path
             
             randomFork1 = rand.nextInt(rows-2)+1;
@@ -148,7 +141,7 @@ public class mapgenerator {
         for(int z1 = 0; z1 < rows; z1++){
             if(maze[z1][columns-1] == 0) maze[z1][columns-1] = 2;
         }
-        
+
         for (int z = 0; z < rows; z++) {
             for (int y = 0; y < columns; y++) {
                 if (maze[z][y] == 1) {
@@ -165,4 +158,5 @@ public class mapgenerator {
         }
     }
 }
+
 
