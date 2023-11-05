@@ -22,6 +22,7 @@ public class App {
         frame.setVisible(true);
 
         gamePanel.startGameThread();
+
     }
 
     public static App getInstance() {

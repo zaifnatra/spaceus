@@ -77,6 +77,16 @@ public class launcher {
         quitButton.setFont(pixelFont.deriveFont(Font.BOLD, 12)); // Increased font size for buttons
         quitButton.setPreferredSize(new Dimension(200, 60)); // Set preferred button size
 
+        // Add the credits label
+        JLabel creditsLabel = new JLabel("Made by: Saymonn Lagran, Huzaifa Fareed, Derek Gallagher");
+        c.gridx = 0;
+        c.gridy = 3;
+        c.gridwidth = 2; // Span across two columns
+        c.insets = new Insets(20, 0, 50, 0); // Adjusted top and bottom insets
+        creditsLabel.setFont(pixelFont.deriveFont(Font.PLAIN, 16));
+        // Set a larger font size for credits
+        creditsLabel.setForeground(Color.WHITE); // Set text color to white
+        panel.add(creditsLabel, c);
         frame.add(panel);
         frame.pack();
         frame.setVisible(true);
