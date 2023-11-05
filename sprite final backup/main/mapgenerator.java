@@ -158,7 +158,7 @@ public class mapgenerator {
                 "sprite final backup/res/maps/map1.txt"))) {
             for (int z = 0; z < rows; z++) {
                 for (int y = 0; y < columns; y++) {
-                    if (maze[z][y] == 1) {
+                    if (maze[z][y] == 1 || maze[z][y] == 0) {
                         writer.write(rand.nextInt(3) + " ");
                     } else if (maze[z][y] == 2) {
                         writer.write((rand.nextInt(3) + 4) + " ");

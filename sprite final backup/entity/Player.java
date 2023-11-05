@@ -7,6 +7,8 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
 import main.GamePanel;
@@ -79,7 +81,14 @@ public class Player extends Entity {
 
         if (gp.tileM.isCollisionWithKing(x, y)) {
      // Display the message when the king is found
-     JOptionPane.showMessageDialog(null, "I have found the king!");
+     JFrame frame = new JFrame();
+     JLabel label = new JLabel();
+     label.setText("You have closed the space between us");
+     frame.setSize(500, 500);
+     frame.setVisible(true);
+     frame.setDefaultCloseOperation(frame.DISPOSE_ON_CLOSE);
+     //frame.setDefaultCloseOperation(JOptionPane.ABORT);
+     System.exit(0);
      // You can also perform other actions when the king is found
         }
 
