@@ -1,5 +1,4 @@
 package main;
-//package munchalations;
 
 import java.awt.Dimension;
 import java.awt.Graphics;
@@ -12,7 +11,7 @@ import tile.TileManager;
 
 public class GamePanel extends JPanel implements Runnable {
 
-    // screen settings
+    // Screen settings
     final int originalArenaSize = 16;
     final int scale = 3;
 
@@ -30,12 +29,7 @@ public class GamePanel extends JPanel implements Runnable {
     Thread gameThread;
     Player player = new Player(this, keyH);
 
-    // Set default position of character
-    int playerX = 100;
-    int playerY = 100;
-    int playerSpeed = 3;
-
-    // Constructor for gamepanel
+    // Constructor for game panel
     public GamePanel() {
         this.setPreferredSize(new Dimension(screenWidth, screenHeight));
         this.setBackground(Color.black);
@@ -45,23 +39,20 @@ public class GamePanel extends JPanel implements Runnable {
     }
 
     public void startGameThread() {
-
         gameThread = new Thread(this);
         gameThread.start();
     }
 
     @Override
     public void run() {
-
-        double drawInterval = 1000000000 / FPS; // using nanoseconds
+        double drawInterval = 1000000000.0 / FPS; // Using nanoseconds
         double nextDrawTime = System.nanoTime() + drawInterval;
 
         while (gameThread != null) {
-
-            // updates the character's position
+            // Update the character's position
             update();
 
-            // draw the line screen/fps
+            // Draw the screen and FPS
             repaint();
 
             try {
@@ -72,26 +63,62 @@ public class GamePanel extends JPanel implements Runnable {
                     remainingTime = 0;
                 }
 
-                Thread.sleep((long) remainingTime); // Pauses the game loop
+                Thread.sleep((long) remainingTime); // Pause the game loop
 
                 nextDrawTime += drawInterval;
 
             } catch (InterruptedException e) {
-                // TODO Auto-generated catch block
                 e.printStackTrace();
             }
         }
     }
 
-    // updtes the position of the sprite
+    // Update the position of the sprite
     public void update() {
-
         player.update();
-    }
-
-    public void paintComponent(Graphics g) {
         
+        int playerWidth = 30; // Width of the player's sprite
+        int playerHeight = 48; // Height of the player's sprite
+    
+        for (int col = 0; col < maxScreenColumn; col++) {
+            for (int row = 0; row < maxScreenRow; row++) {
+                int tileNum = tileM.mapTileNum[col][row];
+                if (tileNum == 3 || tileNum == 4) { // Check for specific tile numbers
+                    int tileX = col * arenaSize;
+                    int tileY = row * arenaSize;
+    
+                    // Check for collision with the current tile
+                    if (player.x + playerWidth > tileX && player.x < tileX + arenaSize &&
+                        player.y + playerHeight > tileY && player.y < tileY + arenaSize) {
+                        
+                        // Handle collision logic here
+                        // Adjust the player's position to prevent moving into the tile
+                        if (player.vx > 0) {
+                            // Moving right, prevent moving further right
+                            player.x = tileX - playerWidth;
+                        } else if (player.vx < 0) {
+                            // Moving left, prevent moving further left
+                            player.x = tileX + arenaSize;
+                        }
+                        
+                        if (player.vy > 0) {
+                            // Moving down, prevent moving further down
+                            player.y = tileY - playerHeight;
+                        } else if (player.vy < 0) {
+                            // Moving up, prevent moving further up
+                            player.y = tileY + arenaSize;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    
+    
 
+    @Override
+    public void paintComponent(Graphics g) {
         super.paintComponent(g);
 
         Graphics2D g2 = (Graphics2D) g;
@@ -104,15 +131,15 @@ public class GamePanel extends JPanel implements Runnable {
 
         // Collision with screen boundaries
         if (player.x < 0) {
-        player.x = 0;
-    } else if (player.x > screenWidth - 48) { // Subtract sprite width
-        player.x = screenWidth - 48;
-    }
+            player.x = 0;
+        } else if (player.x > screenWidth - 48) { // Subtract sprite width
+            player.x = screenWidth - 48;
+        }
 
-    if (player.y < 0) {
-        player.y = 0;
-    } else if (player.y > screenHeight - 48) { // Subtract sprite height
-        player.y = screenHeight - 48;
+        if (player.y < 0) {
+            player.y = 0;
+        } else if (player.y > screenHeight - 48) { // Subtract sprite height
+            player.y = screenHeight - 48;
+        }
     }
-}
 }

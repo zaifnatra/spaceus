@@ -15,6 +15,7 @@ public class Player extends Entity {
 
     GamePanel gp;
     KeyHandler keyH;
+    public int vx, vy;
 
     public Player(GamePanel gp, KeyHandler keyH) {
         this.gp = gp;
@@ -49,20 +50,33 @@ public class Player extends Entity {
     }
 
     public void update() {
-        if (keyH.upPressed == true) {
+        if (keyH.upPressed) {
             direction = "up";
-            y -= speed;
-        } else if (keyH.downPressed == true) {
+            vy = -speed;
+            vx = 0;
+        } else if (keyH.downPressed) {
             direction = "down";
-            y += speed;
-        } else if (keyH.leftPressed == true) {
+            vy = speed;
+            vx = 0;
+        } else if (keyH.leftPressed) {
             direction = "left";
-            x -= speed;
-        } else if (keyH.rightPressed == true) {
+            vx = -speed;
+            vy = 0;
+        } else if (keyH.rightPressed) {
             direction = "right";
-            x += speed;
+            vx = speed;
+            vy = 0;
+        } else {
+            // No movement input, set velocity to 0
+            vx = 0;
+            vy = 0;
         }
+    
+        // Update the player's position
+        x += vx;
+        y += vy;
     }
+    
 
     public void draw(Graphics2D g2) {
         BufferedImage image = null;
