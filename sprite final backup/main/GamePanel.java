@@ -5,6 +5,7 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Color;
 import javax.swing.JPanel;
+import javax.swing.JOptionPane;
 
 import entity.Player;
 import tile.TileManager;
@@ -24,7 +25,7 @@ public class GamePanel extends JPanel implements Runnable {
     // FPS
     int FPS = 60;
 
-    TileManager tileM = new TileManager(this);
+    public TileManager tileM = new TileManager(this);
     KeyHandler keyH = new KeyHandler();
     Thread gameThread;
     Player player = new Player(this, keyH);
@@ -36,6 +37,7 @@ public class GamePanel extends JPanel implements Runnable {
         this.setDoubleBuffered(true);
         this.addKeyListener(keyH);
         this.setFocusable(true);
+        
     }
 
     public void startGameThread() {

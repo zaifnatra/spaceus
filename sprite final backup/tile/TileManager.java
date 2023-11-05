@@ -6,6 +6,9 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+
 import javax.imageio.ImageIO;
 
 import main.GamePanel;
@@ -66,7 +69,14 @@ public class TileManager {
             tile[7] = new Tile();
             tile[7].image = ImageIO.read(
                     getClass().getResourceAsStream("/res/space_background_pack/layers/kingsprite.png"));
-            tile[7].collision = true;
+            if (tile[7].collision == true) {
+                JFrame frame = new JFrame();
+                frame.setSize(500, 500);
+                JOptionPane.showMessageDialog(frame, "You have minimized the distance between us!");
+                frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                System.exit(0);
+            }    
+            tile[7].collision = false;  
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -104,7 +114,16 @@ public class TileManager {
 
         }
 
+    }   public boolean isCollisionWithKing(int x, int y) {
+        int col = x / gp.arenaSize;
+        int row = y / gp.arenaSize;
+        if (col >= 0 && col < gp.maxScreenColumn && row >= 0 && row < gp.maxScreenRow) {
+            int tileNum = mapTileNum[col][row];
+            return tileNum == 7;
+        }
+        return false;
     }
+
 
     public void draw(Graphics2D g2) {
         int col = 0;

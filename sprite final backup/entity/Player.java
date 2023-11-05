@@ -7,6 +7,7 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
+import javax.swing.JOptionPane;
 
 import main.GamePanel;
 import main.KeyHandler;
@@ -75,6 +76,12 @@ public class Player extends Entity {
         // Update the player's position
         x += vx;
         y += vy;
+
+        if (gp.tileM.isCollisionWithKing(x, y)) {
+     // Display the message when the king is found
+     JOptionPane.showMessageDialog(null, "I have found the king!");
+     // You can also perform other actions when the king is found
+        }
 
         spriteCounter++;
         if (spriteCounter > 10) {
