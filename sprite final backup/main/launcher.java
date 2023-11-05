@@ -76,11 +76,25 @@ public class launcher {
         panel.add(quitButton, c);
         quitButton.setFont(pixelFont.deriveFont(Font.BOLD, 12)); // Increased font size for buttons
         quitButton.setPreferredSize(new Dimension(200, 60)); // Set preferred button size
+        
+        JButton randomizeButton = new JButton("Randomize Level");
+        randomizeButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                mapgenerator.main(args);
+
+            }
+        });
+        c.gridx = 0;
+        c.gridy = 3;
+        c.insets = new Insets(50, 0, 20, 0); // Increased top and bottom insets, adjusted left inset
+        panel.add(randomizeButton, c);
+        randomizeButton.setFont(pixelFont.deriveFont(Font.BOLD, 12)); // Increased font size for buttons
+        randomizeButton.setPreferredSize(new Dimension(200, 60)); // Set preferred button size
 
         // Add the credits label
         JLabel creditsLabel = new JLabel("Made by: Saymonn Lagran, Huzaifa Fareed, Derek Gallagher");
         c.gridx = 0;
-        c.gridy = 3;
+        c.gridy = 4;
         c.gridwidth = 2; // Span across two columns
         c.insets = new Insets(20, 0, 50, 0); // Adjusted top and bottom insets
         creditsLabel.setFont(pixelFont.deriveFont(Font.PLAIN, 16));

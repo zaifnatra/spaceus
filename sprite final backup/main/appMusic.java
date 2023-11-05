@@ -1,14 +1,27 @@
 package main;
-
-import javax.sound.sampled.AudioInputStream;
-import javax.sound.sampled.AudioSystem;
-import javax.sound.sampled.Clip;
-import javax.sound.sampled.LineUnavailableException;
-import javax.sound.sampled.UnsupportedAudioFileException;
 import java.io.File;
 import java.io.IOException;
+import javax.sound.sampled.*;
+import main.App;
+import java.awt.Color;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import java.awt.Dimension;
+import java.awt.Font;
+import java.awt.Graphics;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.Image;
+import java.awt.Insets;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.File;
 
-public class appMusic extends App {
+
+public class appMusic {
     public static void main(String[] args) {
         // Get the existing app instance
         App app = App.getInstance();
@@ -17,7 +30,7 @@ public class appMusic extends App {
         new Thread(() -> {
             try {
                 // Load the music file
-                File musicFile = new File("/Users/huzaifafareed/Documents/GitHub/spaceus/sprite final backup/res/Density & Time - MAZE.wav");
+                File musicFile = new File("sprite final backup/res/Density & Time - MAZE.wav");
                 AudioInputStream audioStream = AudioSystem.getAudioInputStream(musicFile);
 
                 // Create a clip to play the music
@@ -30,6 +43,10 @@ public class appMusic extends App {
                 e.printStackTrace();
             }
         }).start();
+
+        // Create an instance of the appMusic class and call its main method
+        appMusic musicApp = new appMusic();
+        musicApp.main(args);
 
         // Launch the app
         app.start();
