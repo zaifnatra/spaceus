@@ -79,8 +79,8 @@ public class GamePanel extends JPanel implements Runnable {
     public void update() {
         player.update();
 
-        int playerWidth = 32; // Width of the player's sprite
-        int playerHeight = 32; // Height of the player's sprite
+        int playerWidth = 24; // Width of the player's sprite
+        int playerHeight = 38; // Height of the player's sprite
 
         for (int col = 0; col < maxScreenColumn; col++) {
             for (int row = 0; row < maxScreenRow; row++) {

@@ -83,6 +83,8 @@ public class Player extends Entity {
      // Display the message when the king is found
      JFrame frame = new JFrame();
      JLabel label = new JLabel();
+     JOptionPane pane = new JOptionPane();
+     pane.add(label);
      label.setText("You have closed the space between us");
      frame.setSize(500, 500);
      frame.setVisible(true);
