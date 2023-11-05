@@ -155,7 +155,7 @@ public class mapgenerator {
             System.out.println(" "); // skip line
         }
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(
-                "sprite final backup/res/maps/map1.txt"))) {
+                "map1.txt"))) {
             for (int z = 0; z < rows; z++) {
                 for (int y = 0; y < columns; y++) {
                     if (maze[z][y] == 1) {
