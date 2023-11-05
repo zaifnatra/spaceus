@@ -115,7 +115,4 @@ public class launcher {
             return new Font("Arial", Font.PLAIN, 12); // Default font if the pixel art font fails to load
         }
     }
-
-    public void startApp() {
-    }
 }

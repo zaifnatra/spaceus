@@ -63,11 +63,6 @@ public class TileManager {
                     getClass().getResourceAsStream("/res/space_background_pack/layers/ugly.png"));
             tile[6].collision = true;
 
-            tile[7] = new Tile();
-            tile[7].image = ImageIO.read(
-                    getClass().getResourceAsStream("sprite final backup/res/kingsprite.png"));
-            tile[7].collision = true;
-
         } catch (IOException e) {
             e.printStackTrace();
         }
