@@ -90,6 +90,7 @@ public class GamePanel extends JPanel implements Runnable {
     }
 
     public void paintComponent(Graphics g) {
+        
 
         super.paintComponent(g);
 
@@ -100,5 +101,18 @@ public class GamePanel extends JPanel implements Runnable {
         player.draw(g2);
 
         g2.dispose();
+
+        // Collision with screen boundaries
+        if (player.x < 0) {
+        player.x = 0;
+    } else if (player.x > screenWidth - 48) { // Subtract sprite width
+        player.x = screenWidth - 48;
     }
+
+    if (player.y < 0) {
+        player.y = 0;
+    } else if (player.y > screenHeight - 48) { // Subtract sprite height
+        player.y = screenHeight - 48;
+    }
+}
 }
