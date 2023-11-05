@@ -159,11 +159,11 @@ public class mapgenerator {
             for (int z = 0; z < rows; z++) {
                 for (int y = 0; y < columns; y++) {
                     if (maze[z][y] == 1) {
-                        writer.write(" ");
+                        writer.write(rand.nextInt(3) + " ");
                     } else if (maze[z][y] == 2) {
-                        writer.write("#");
+                        writer.write((rand.nextInt(3) + 4) + " ");
                     } else {
-                        writer.write("O");
+                        writer.write(rand.nextInt(3) + " ");
                     }
                 }
                 writer.newLine();
