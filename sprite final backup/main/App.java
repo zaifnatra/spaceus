@@ -23,4 +23,11 @@ public class App {
 
         gamePanel.startGameThread();
     }
+
+    public static App getInstance() {
+        return null;
+    }
+
+    public void start() {
+    }
 }
