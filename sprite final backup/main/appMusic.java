@@ -10,15 +10,15 @@ import java.io.IOException;
 
 public class appMusic extends App {
     public static void main(String[] args) {
-        // Get the existing app instance
-        App app = App.getInstance();
+        // Create a new instance of the Launcher
+        launcher launcher = new launcher();
 
         // Create a new thread to play the music in the background
-        new Thread(() -> {
+        Thread musicThread = new Thread(() -> {
             try {
                 // Load the music file
                 File musicFile = new File(
-                        "/Users/huzaifafareed/Documents/GitHub/spaceus/sprite final backup/res/Density & Time - MAZE.wav");
+                        "sprite final backup/res/Density & Time - MAZE.wav");
                 AudioInputStream audioStream = AudioSystem.getAudioInputStream(musicFile);
 
                 // Create a clip to play the music
@@ -27,12 +27,35 @@ public class appMusic extends App {
 
                 // Play the music on loop
                 clip.loop(Clip.LOOP_CONTINUOUSLY);
-            } catch (IOException | UnsupportedAudioFileException | LineUnavailableException e) {
+
+                // Wait for the music to finish playing
+                while (clip.isRunning()) {
+                    Thread.sleep(1000);
+                }
+
+                // Close the clip
+                clip.close();
+            } catch (IOException | UnsupportedAudioFileException | LineUnavailableException | InterruptedException e) {
                 e.printStackTrace();
             }
-        }).start();
+        });
+        musicThread.start();
+
+        // Wait for the music thread to start playing the music
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
 
         // Launch the app
-        app.start();
+        launcher.startApp();
+
+        // Wait for the music thread to finish playing the music
+        try {
+            musicThread.join();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 }
