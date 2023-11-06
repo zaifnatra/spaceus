@@ -5,8 +5,13 @@ import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
+import java.util.Timer;
+import java.util.TimerTask;
+import java.awt.event.ActionEvent;
+
 
 import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -80,18 +85,10 @@ public class Player extends Entity {
         y += vy;
 
         if (gp.tileM.isCollisionWithKing(x, y)) {
-     // Display the message when the king is found
-     JFrame frame = new JFrame();
-     JLabel label = new JLabel();
-     JOptionPane pane = new JOptionPane();
-     pane.add(label);
-     label.setText("You have closed the space between us");
-     frame.setSize(500, 500);
-     frame.setVisible(true);
-     frame.setDefaultCloseOperation(frame.DISPOSE_ON_CLOSE);
-     //frame.setDefaultCloseOperation(JOptionPane.ABORT);
-     System.exit(0);
-     // You can also perform other actions when the king is found
+            // Display the message when the king is found
+            ImageIcon scaryIcon = new ImageIcon("sprite final backup/res/space_background_pack/group.png");
+            JOptionPane.showMessageDialog(null, "You have minimized the distance between us!", "Game Over", JOptionPane.INFORMATION_MESSAGE, scaryIcon);
+            System.exit(0);
         }
 
         spriteCounter++;
