@@ -55,7 +55,7 @@ public class launcher {
         startButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 App.main(args);
-                frame.dispose();
+               // frame.dispose();
             }
         });
         c.gridx = 0;

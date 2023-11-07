@@ -9,8 +9,8 @@ import java.io.IOException;
 public class mapgenerator {
     public static void main(String[] args) {
 
-        int columns = 40; // change to make variable size
-        int rows = 20; // change to make variable size
+        int columns = 20; // change to make variable size
+        int rows = 10; // change to make variable size
         int locationX = 0; // current pos on x axis
         int locationY = 0; // current pos on y axis
         int randomMove; // chooses where to move to create solution path
