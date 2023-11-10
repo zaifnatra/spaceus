@@ -147,9 +147,9 @@ public class mapgenerator {
                 if (maze[z][y] == 1) {
                     System.out.print(rand.nextInt(3) + " "); // ' ' for paths
                 } else if (maze[z][y] == 2) {
-                    System.out.print((rand.nextInt(3) + 4) + " "); // '#' for walls
+                    System.out.print((rand.nextInt(5) + 4) + " "); // '#' for walls
                 } else {
-                    System.out.print("7 "); // 'O' for undefined
+                    System.out.print("9 "); // 'O' for undefined
                 }
             }
             System.out.println(" "); // skip line
@@ -161,9 +161,9 @@ public class mapgenerator {
                     if (maze[z][y] == 1 || maze[z][y] == 0) {
                         writer.write(rand.nextInt(3) + " ");
                     } else if (maze[z][y] == 2) {
-                        writer.write((rand.nextInt(3) + 4) + " ");
+                        writer.write((rand.nextInt(5) + 4) + " ");
                     } else {
-                        writer.write("7 ");
+                        writer.write("9 ");
                     }
                 }
                 writer.newLine();

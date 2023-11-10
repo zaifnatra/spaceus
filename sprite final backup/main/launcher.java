@@ -1,11 +1,15 @@
 package main;
 
+import java.awt.Button;
 import java.awt.Color;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
+
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Graphics;
@@ -15,6 +19,7 @@ import java.awt.Image;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Scanner;
 
 public class launcher {
     public static void main(String[] args) {
@@ -80,9 +85,23 @@ public class launcher {
         JButton randomizeButton = new JButton("Randomize Level");
         randomizeButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
+                Scanner scanner = new Scanner(System.in);
+                JFrame frame = new JFrame();
+                frame.setSize(200,100);
+                frame.setLocationRelativeTo(null);
+                frame.setVisible(true);
+                
+                
+                JTextField field = new JTextField("Enter Columns: ");
+                
+                field.setSize(720,1280);
+                field.setVisible(true);
+
+                frame.add(field);
                 mapgenerator.main(args);
 
             }
+            
         });
         c.gridx = 0;
         c.gridy = 3;
