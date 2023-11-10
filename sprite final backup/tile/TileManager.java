@@ -69,6 +69,15 @@ public class TileManager {
             tile[7] = new Tile();
             tile[7].image = ImageIO.read(
                     getClass().getResourceAsStream("/res/space_background_pack/layers/kingsprite.png"));
+
+            tile[8] = new Tile();
+            tile[8].image = ImageIO.read (
+                    getClass().getResourceAsStream("/res/tiles/station1.png"));
+            
+            tile[9] = new Tile();
+            tile[9].image = ImageIO.read (
+                    getClass().getResourceAsStream("/res/tiles/station2.png"));
+                    
             if (tile[7].collision == true) {
                 JFrame frame = new JFrame();
                 frame.setSize(500, 500);
