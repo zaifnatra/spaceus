@@ -49,35 +49,38 @@ public class TileManager {
             tile[3] = new Tile();
             tile[3].image = ImageIO.read(
                     getClass().getResourceAsStream("/res/space_background_pack/layers/parallax-space-backgound.png"));
-            tile[3].collision = true;
+            tile[3].collision = false;
 
             tile[4] = new Tile();
             tile[4].image = ImageIO.read(
                     getClass().getResourceAsStream("/res/space_background_pack/layers/parallax-space-stars.png"));
-            tile[4].collision = true;
+            tile[4].collision = false;
 
             tile[5] = new Tile();
             tile[5].image = ImageIO.read(
                     getClass().getResourceAsStream("/res/space_background_pack/layers/parallax-space-big-planet.png"));
-            tile[5].collision = true;
+            tile[5].collision = false;
 
             tile[6] = new Tile();
             tile[6].image = ImageIO.read(
                     getClass().getResourceAsStream("/res/space_background_pack/layers/parallax-space-far-planets.png"));
-            tile[6].collision = true;
+            tile[6].collision = false;
+
+            tile[7] = new Tile();
+            tile[7].image = ImageIO.read (
+                    getClass().getResourceAsStream("/res/tiles/station2.png"));
+            tile[7].collision = false;
+                    
+
+            tile[8] = new Tile();
+            tile[8].image = ImageIO.read (
+                    getClass().getResourceAsStream("/res/tiles/station1.png"));      
+            tile[8].collision = false;          
 
             tile[9] = new Tile();
             tile[9].image = ImageIO.read(
                     getClass().getResourceAsStream("/res/space_background_pack/layers/kingsprite.png"));
-
-            tile[8] = new Tile();
-            tile[8].image = ImageIO.read (
-                    getClass().getResourceAsStream("/res/tiles/station1.png"));
-            
-            tile[7] = new Tile();
-            tile[7].image = ImageIO.read (
-                    getClass().getResourceAsStream("/res/tiles/station2.png"));
-
+                    
             if (tile[9].collision == true) {
                 JFrame frame = new JFrame();
                 frame.setSize(500, 500);
@@ -87,6 +90,8 @@ public class TileManager {
             }    
             tile[9].collision = false;  
 
+           
+            
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -128,7 +133,7 @@ public class TileManager {
         int row = y / gp.arenaSize;
         if (col >= 0 && col < gp.maxScreenColumn && row >= 0 && row < gp.maxScreenRow) {
             int tileNum = mapTileNum[col][row];
-            return tileNum == 7;
+            return tileNum == 9;
         }
         return false;
     }

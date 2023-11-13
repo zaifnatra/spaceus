@@ -85,7 +85,7 @@ public class GamePanel extends JPanel implements Runnable {
         for (int col = 0; col < maxScreenColumn; col++) {
             for (int row = 0; row < maxScreenRow; row++) {
                 int tileNum = tileM.mapTileNum[col][row];
-                if (tileNum == 3 || tileNum == 4 || tileNum == 5 || tileNum == 6) { // Check for specific tile numbers
+                if (tileNum == 3 || tileNum == 4 || tileNum == 5 || tileNum == 6 || tileNum == 7) { // Check for specific tile numbers
                     int tileX = col * arenaSize;
                     int tileY = row * arenaSize;
 
