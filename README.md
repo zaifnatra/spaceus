@@ -1,5 +1,3 @@
 # spacebetweenus
 
-November 7th Log:
-- group image does not load after character reachers king after exporting it as runnable jar file
-- map doesn't randomize after it is executed in the jar file 
+In this 2D Puzzle Adventure game, Marissa, a Galactic must find her soulmate King Ozzi through the different obstacles and mazes.
