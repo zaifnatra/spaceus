@@ -18,3 +18,7 @@ Navigate through obstacles and mazes, and uncover a story full of cosmic weirdne
 ## 🕹️ How to Play
 Simply download the JAR file and run it!
 Release is on the right!
+Mac Users:
+On Terminal run : cd downloads
+Then java -jar game.jar
+Enjoy
