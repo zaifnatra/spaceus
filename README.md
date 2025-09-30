@@ -1,5 +1,9 @@
 # 🌌 Heroes Journey
 
+**Creators**
+[a link](https://github.com/saymonnlagran)
+[a link](https://github.com/Derick12345678)
+
 **UPDATE (v1.1)**  
 - ✅ Added a downloadable `.jar` file (just run it to play!)  
 - ⚠️ Map randomizer currently not working (we're working on it).  
